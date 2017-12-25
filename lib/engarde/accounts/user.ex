@@ -3,14 +3,13 @@ defmodule Engarde.Accounts.User do
   import Ecto.Changeset
   alias Engarde.Accounts.User
 
-
   schema "users" do
-    field :email, :string
-    field :password_hash, :string
-    field :username, :string
+    field(:email, :string)
+    field(:password_hash, :string)
+    field(:username, :string)
 
-    field :password, :string, virtual: true
-    field :password_confirmation, :string, virtual: true
+    field(:password, :string, virtual: true)
+    field(:password_confirmation, :string, virtual: true)
 
     timestamps()
   end
@@ -28,7 +27,8 @@ defmodule Engarde.Accounts.User do
   end
 
   defp put_pass_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
-      change(changeset, Comeonin.Bcrypt.add_hash(password))
+    change(changeset, Comeonin.Bcrypt.add_hash(password))
   end
+
   defp put_pass_hash(changeset), do: changeset
 end

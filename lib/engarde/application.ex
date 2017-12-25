@@ -11,7 +11,7 @@ defmodule Engarde.Application do
       # Start the Ecto repository
       supervisor(Engarde.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(EngardeWeb.Endpoint, []),
+      supervisor(EngardeWeb.Endpoint, [])
       # Start your own worker by calling: Engarde.Worker.start_link(arg1, arg2, arg3)
       # worker(Engarde.Worker, [arg1, arg2, arg3]),
     ]
